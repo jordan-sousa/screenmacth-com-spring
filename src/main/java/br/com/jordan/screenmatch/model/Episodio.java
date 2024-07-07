@@ -7,6 +7,8 @@ public class Episodio {
     private Integer temporada;
     private String titulo;
     private Integer numeroEpisodio;
+    private Double avaliacao;
+    private LocalDate dataLancamento;
 
     @Override
     public String toString() {
@@ -16,9 +18,6 @@ public class Episodio {
                 ", avaliacao=" + avaliacao +
                 "dataLancamento=" + dataLancamento ;
     }
-
-    private Double avaliacao;
-    private LocalDate dataLancamento;
 
     public Episodio(Integer numeroTemporada, DadosEpisodios dadosEpisodios) {
         this.temporada = numeroTemporada;
