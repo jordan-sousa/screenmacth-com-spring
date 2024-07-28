@@ -2,6 +2,7 @@ package br.com.jordan.screenmatch.service;
 
 import br.com.jordan.screenmatch.dto.EpisodioDTO;
 import br.com.jordan.screenmatch.dto.SerieDTO;
+import br.com.jordan.screenmatch.model.Categoria;
 import br.com.jordan.screenmatch.model.Serie;
 import br.com.jordan.screenmatch.repository.SerieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,5 +60,10 @@ public class SerieSevice {
                 .stream()
                 .map(e -> new EpisodioDTO(e.getTemporada(), e.getTitulo(), e.getNumeroEpisodio()))
                 .collect(Collectors.toList());
+    }
+
+    public List<SerieDTO> obterSeriesPorCategoria(String nomeGenero) {
+        Categoria categoria = Categoria.fromPortugues(nomeGenero);
+        return converteDados(repositorio.findByGenero(categoria));
     }
 }
